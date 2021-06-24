@@ -1,0 +1,36 @@
+%read file from excel
+nd = xlsread('C:\Users\debar\Google Drive\Dissertation Data\Matlab Data\WestBengal.xlsx') 
+
+
+a =[] ;
+m = 1 ;
+
+%feeding the column with the proportion of each religion in each district into variable 'ni'
+ni = nd(:,2);
+
+%feeding the column with the square of proportion of each religion in each district into variable 'nisq'	
+nisq = nd(:,3);
+
+%calculating the number of elements in ni, i.e., 8 religions * number of districts in a state
+N = numel(ni);
+
+%calculating the number of districts for a state
+n = (N/8) ;
+
+
+for i = 1:n					%running the first loop once for every district
+    d = 0 ;					%inititating a counter for every district
+    for j = m:(m+7) ;				%running the second loop for the outer summation
+        for k = m:(m+7) ;			%running the third loop for the inner summation
+            if(k~=j)				
+            d = d + ni(j)*nisq(k);  		%calculating the index for every religion in every district
+            end
+        end   
+    end
+    d = 4*d ;					
+    a = [a,d] ;
+    m = m+8 ;					%seeding m for the next district
+end    
+
+%create a new excel sheet with the indices
+xlswrite('WestBengalP.xlsx', a, 'Sheet1', 'A1');
