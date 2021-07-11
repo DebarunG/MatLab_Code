@@ -1,5 +1,5 @@
 # MatLab_Code
-Hello there. This is where you will find the MatLab codes that I have used for my own projects in the past. For now, this only includes one .txt file called \*Dissertation_Index\*, 
+Hello! This is where you will find the MatLab codes that I have used for my own projects in the past. For now, this only includes one .txt file called `Dissertation_Index`,
 but I aim to add more to it as I keep learning and practicing more stuff. 
 
 ## Dissertation Index
